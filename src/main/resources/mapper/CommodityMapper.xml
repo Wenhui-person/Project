@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.edu.sdut.project.mapper.CommodityMapper">
+    <select id="queryCommodityByname" parameterType="Commodity" resultType="Commodity">
+        select * from commodity
+        <where>
+            <if test="commodityTitle!=null and commodityTitle!=''">
+                and commodityTitle like concat("%",#{commodityTitle},"%")
+            </if>
+        </where>
+    </select>
+    <select id="queryCommodities" resultType="Commodity">
+        select * from commodity
+    </select>
+
+    <insert id="addCommodity" parameterType="Commodity">
+        insert into commodity values(#{commodityId},#{commodityTitle},
+        #{commodityType},now(),now(),#{qualityPeriod})
+    </insert>
+    <!--#{manuDate},#{groundDate},-->
+</mapper>
