@@ -14,6 +14,7 @@ public class SaleController {
 
     @Resource
     private SaleService saleService;
+    public static final String SUCCESS="redirect:doSale";
 
 
     @RequestMapping("xiaoshouxinxi")
@@ -31,5 +32,30 @@ public class SaleController {
         List<Sale> sales=this.saleService.querySales();
         modelMap.put("xiaoshou",sales);
         return "left/xiaoshouxinxi";
+    }
+    /**销售详情查看**/
+    @RequestMapping("doSaleDetail")
+    public String doSaleDetail(int saleId,ModelMap modelMap){
+        Sale sales=this.saleService.querySalesById(saleId);
+        modelMap.put("sale",sales);
+        return "salemanage/saleDetail";
+    }
+    /**销售信息修改**/
+    @RequestMapping("toSaleChange")
+    public String toSaleChange(int saleId,ModelMap modelMap){
+        modelMap.put("saleId",saleId);
+        return "salemanage/xiaoshou_change";
+    }
+    @RequestMapping("doSaleChange")
+    public String doSaleChange(Sale sale,int saleId){
+        sale.setSaleId(saleId);
+        this.saleService.updateSale(sale);
+        return SUCCESS;
+    }
+    /**删除销售信息**/
+    @RequestMapping("doDeleteSale")
+    public String doDeleteSale(int saleId){
+        this.saleService.deleteSale(saleId);
+        return SUCCESS;
     }
 }

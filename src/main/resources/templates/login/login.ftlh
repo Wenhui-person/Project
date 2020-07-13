@@ -18,7 +18,7 @@
     <div class="clear"></div>
     <input type="submit"  class="button" name="commit" value="登       录"/>
 </form>
-<a href="/toRegister" id="Lk" target="_self">立即注册</a>
+<a href="toRegister" id="Lk" target="_self">立即注册</a>
 <p><strong>&copy;www.ywh.cn</strong></p>
 
 </body>

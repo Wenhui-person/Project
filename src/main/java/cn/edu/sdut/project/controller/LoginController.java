@@ -6,6 +6,7 @@ import cn.edu.sdut.project.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -42,16 +43,29 @@ public class LoginController {
         modelMap.put("user",u);
         return "main/public_header";
     }
+
     @RequestMapping("toChangepwd")
-    public String doChangepwd(User user,ModelMap modelMap){
-        modelMap.put("user",user);
+    public String toChangepwd(@RequestParam(value = "password") String password, @RequestParam(value = "userid") String userid,
+            ModelMap modelMap){
+        modelMap.put("oldpassword",password);
+        modelMap.put("userid",userid);
+        System.out.println("oldpassword = " + password);
         return "header/change_psw";
     }
     @RequestMapping("doChangepwd")
-    public String doChangepwd(User user){
+    public String doChangepwd(@RequestParam(value = "userid") String userid,String password){
+        User user=new User(userid,password);
         this.userService.updateUserpwd(user);
-        System.out.println("测试doChangepwd");
         return SUCCESS;
+    }
+    @RequestMapping("toRegister")
+    public String toRegister(){
+        return "login/register";
+    }
+    @RequestMapping("doRegister")
+    public String doRegister(User user){
+        this.userService.addUser(user);
+        return "login/login";
     }
 
 }

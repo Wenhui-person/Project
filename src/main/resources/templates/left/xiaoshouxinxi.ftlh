@@ -13,9 +13,9 @@
     </div>
     <div class="ctab-Mian-cont">
         <div class="Mian-cont-btn clearfix">
-            <h class="SsearchText1">按名称查询：</h>
+            <h class="SsearchText1">按编号查询：</h>
             <div class="SsearchBar1">
-                <input type="text" id="" value="" class="form-control srhTxt" placeholder="输入商品名称关键字">
+                <input type="text" id="" value="" class="form-control srhTxt" placeholder="输入商品编号">
                 <input type="button" class="srhBtn" value="">
             </div>
             <h class="SsearchText2">按时间查询：</h>
@@ -53,9 +53,9 @@
 
                             <td class="t_7" colspan="2">
                                 <div class="btn">
-                                    <a href="#" class="detail">详情</a>
-                                    <a href="#" class="modify">修改</a>
-                                    <a href="#" class="delete">删除</a>
+                                    <a href="doSaleDetail?saleId=${sales.saleId}" class="detail">详情</a>
+                                    <a href="toSaleChange?saleId=${sales.saleId}" class="modify">修改</a>
+                                    <a href="doDeleteSale?saleId=${sales.saleId}" class="delete" onclick="javascript: return delcfm();">删除</a>
                                 </div>
                             </td>
                         </tr>
@@ -65,7 +65,7 @@
             </table>
             <!--pages S-->
             <div class="pageSelect">
-                <span>共 <b>188</b> 条 每页 <b>10 </b>条   1/18</span>
+                <span>共 <b>18</b> 条 每页 <b>10 </b>条   1/18</span>
                 <div class="pageWrap">
                     <a class="pagePre"><i class="ico-pre">&nbsp;</i></a>
                     <a href="#" class="pagenumb cur">1</a>
@@ -83,4 +83,11 @@
 </body>
 <link rel="stylesheet" href="/css/base.css">
 <link rel="stylesheet" href="/css/page.css">
+<script type="text/javascript">
+    function delcfm() {
+        if (!confirm("确认要删除？")) {
+            return false;
+        }
+    }
+</script>
 </html>

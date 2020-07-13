@@ -6,7 +6,7 @@
 </head>
 
 <body style="background: #f6f5fa;">
-<form action="doChangepwd" method="post">
+<form action="doChangepwd?userid=${userid}" method="post">
 	<!--content S-->
 	<div class="super-content">
 		<div class="superCtab">
@@ -44,7 +44,7 @@
 		var oldpwd=document.getElementById("oldPwd").value();
 		var newpwd=document.getElementById("newPwd").value();
 		var again=document.getElementById("again").value();
-		if(oldpwd!=${user.password}){
+		if(oldpwd!=${oldpassword}){
 			alert("请输入正确的旧密码！")
 		}else if(newpwd!=again){
 			alert("密码不一致！")

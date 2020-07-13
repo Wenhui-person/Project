@@ -17,4 +17,19 @@ public class SaleServiceImpl implements SaleService {
     public List<Sale> querySales() {
         return this.saleMapper.querySales();
     }
+
+    @Override
+    public Sale querySalesById(int saleId) {
+        return this.saleMapper.querySalesById(saleId);
+    }
+
+    @Override
+    public int updateSale(Sale sale) {
+        return this.saleMapper.updateSale(sale);
+    }
+
+    @Override
+    public int deleteSale(int saleId) {
+        return this.saleMapper.deleteSale(saleId);
+    }
 }

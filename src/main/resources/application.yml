@@ -15,6 +15,12 @@ spring:
     url: jdbc:mysql://localhost:3306/project?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
     password:
+  jackson:
+    date-format: yyyy-MM-dd
+    time-zone: GMT+8
+  mvc:
+    date-format: yyyy-MM-dd
+
 mybatis:
   mapper-locations: mapper/*.xml
   type-aliases-package: cn.edu.sdut.project.entity

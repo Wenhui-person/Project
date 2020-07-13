@@ -6,4 +6,7 @@ import java.util.List;
 
 public interface SaleMapper {
     List<Sale> querySales();
+    Sale querySalesById(int saleId);
+    int updateSale(Sale sale);
+    int deleteSale(int saleId);
 }

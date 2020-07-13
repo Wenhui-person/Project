@@ -23,8 +23,17 @@ public class TestCommodity extends ProjectApplicationTests {
     }
     @Test
     public void testAddCommodity(){
-        Commodity commodity=new Commodity("B109","丽芝士","饼干",null,null,8);
+        Commodity commodity=new Commodity("B109","丽芝士","饼干",null,null,8,0);
         int row=this.commodityService.addCommodity(commodity);
+        print(row);
+    }
+
+    @Test
+    public void testUpdateCommodity(){
+        Commodity commodity=new Commodity("B100","奥利","饼干",null,
+                null,5,0);
+
+        int row=this.commodityService.updateCommodity(commodity);
         print(row);
     }
 

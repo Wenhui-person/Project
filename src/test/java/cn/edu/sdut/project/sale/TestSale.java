@@ -18,4 +18,10 @@ public class TestSale extends ProjectApplicationTests {
         List<Sale> sales=this.saleService.querySales();
         sales.forEach(s-> System.out.println("s = " + s));
     }
+    @Test
+    public void testQuerySalesById(){
+        int saleId=3;
+        Sale sale=this.saleService.querySalesById(saleId);
+        System.out.println("sale = " + sale);
+    }
 }

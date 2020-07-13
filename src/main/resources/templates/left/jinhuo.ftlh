@@ -69,7 +69,7 @@
             </table>
             <!--pages S-->
             <div class="pageSelect">
-                <span>共 <b>188</b> 条 每页 <b>10 </b>条   1/18</span>
+                <span>共 <b>18</b> 条 每页 <b>10 </b>条   1/18</span>
                 <div class="pageWrap">
                     <a class="pagePre"><i class="ico-pre">&nbsp;</i></a>
                     <a href="#" class="pagenumb cur">1</a>

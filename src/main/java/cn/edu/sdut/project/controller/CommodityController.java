@@ -5,6 +5,7 @@ import cn.edu.sdut.project.service.CommodityService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -39,5 +40,26 @@ public class CommodityController {
         modelMap.put("com",commodities);
         return "main/shangpinxinxi";
     }
+    /**商品添加**/
+    @RequestMapping("toCommodityChange")
+    public String toCommodityChange(String commodityId,ModelMap modelMap){
+        modelMap.put("commodityId",commodityId);
+        return "commodity/commodity_change";
+    }
+    @RequestMapping("doCommodityChange")
+    public String doCommodityChange(Commodity commodity,String commodityId){
+        commodity.setCommodityId(commodityId);
+        System.out.println("-------commodityId = " + commodityId);
+        this.commodityService.updateCommodity(commodity);
+        return SUCCESS;
+    }
+    /****删除*****/
+    @RequestMapping("doDeleteCommodity")
+    public String doDeleteCommodity(String commodityId){
+        this.commodityService.deleteCommodity(commodityId);
+        return SUCCESS;
+    }
+
+
 
 }

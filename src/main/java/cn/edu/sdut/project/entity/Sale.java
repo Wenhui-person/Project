@@ -3,10 +3,11 @@ package cn.edu.sdut.project.entity;
 import java.util.Date;
 
 public class Sale {
-    int saleId,saleNum;
-    double salePrice;
-    String commodityId;
-    Date saleDate;
+    private int saleId,saleNum;
+    private double salePrice;
+    private String commodityId;
+    private Date saleDate;
+    private Commodity commodity;
 
     public Sale() {}
 
@@ -16,6 +17,15 @@ public class Sale {
         this.salePrice = salePrice;
         this.commodityId = commodityId;
         this.saleDate = saleDate;
+    }
+
+    public Sale(int saleId, int saleNum, double salePrice, String commodityId, Date saleDate, Commodity commodity) {
+        this.saleId = saleId;
+        this.saleNum = saleNum;
+        this.salePrice = salePrice;
+        this.commodityId = commodityId;
+        this.saleDate = saleDate;
+        this.commodity = commodity;
     }
 
     public int getSaleId() {
@@ -58,6 +68,14 @@ public class Sale {
         this.saleDate = saleDate;
     }
 
+    public Commodity getCommodity() {
+        return commodity;
+    }
+
+    public void setCommodity(Commodity commodity) {
+        this.commodity = commodity;
+    }
+
     @Override
     public String toString() {
         return "Sale{" +
@@ -66,6 +84,7 @@ public class Sale {
                 ", salePrice=" + salePrice +
                 ", commodityId='" + commodityId + '\'' +
                 ", saleDate=" + saleDate +
+                ", commodity=" + commodity +
                 '}';
     }
 }

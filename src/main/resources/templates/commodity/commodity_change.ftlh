@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title>商品信息修改</title>
 </head>
-
 <body>
+<form action="doCommodityChange?commodityId=${commodityId}" method="post">
     <div class="super-content">
         <div class="superCtab">
             <div class="publishArt">
@@ -14,11 +14,11 @@
                     <form action="" method="post">
                         <h5 class="pubtitle">商品编号</h5>
                         <div class="pub-txt-bar">
-                            <input type="text" class="shuruTxt shuruTxt2"><b class="error"></b>
+                            <h5 class="shuruTxt shuruTxt2">${commodityId}</h5>
                         </div>
                         <h5 class="pubtitle">商品名称</h5>
                         <div class="pub-txt-bar">
-                            <input type="text" class="shuruTxt shuruTxt2">
+                            <input type="text" class="shuruTxt shuruTxt2" name="commodityTitle">
                             <!--<div class="errorBox">您所输入的旧密码不正确，请重新输入！</div>-->
                         </div>
                         <h5 class="pubtitle">商品类别</h5>
@@ -36,15 +36,15 @@
                         </div>
                         <h5 class="pubtitle">生产日期</h5>
                         <div class="pub-txt-bar">
-                            <input type="date" class="shuruTxt shuruTxt2">
+                            <input type="date" class="shuruTxt shuruTxt2" name="manuDate">
                         </div>
                         <h5 class="pubtitle">上架日期</h5>
                         <div class="pub-txt-bar">
-                            <input type="date" class="shuruTxt shuruTxt2">
+                            <input type="date" class="shuruTxt shuruTxt2" name="groundDate">
                         </div>
                         <h5 class="pubtitle">保质期</h5>
                         <div class="pub-txt-bar" >
-                            <input type="number" min="1" class="shuruTxt shuruTxt2">
+                            <input type="number" min="1" class="shuruTxt shuruTxt2" name="qualityPeriod">
                         </div>
                         <div class="pub-btn">
                             <input type="submit" value="保存" class="saveBtn">
@@ -55,6 +55,7 @@
             </div>
         </div>
     </div>
+</form>
 </body>
 <link rel="stylesheet" href="../css/base.css">
 <link rel="stylesheet" href="../css/page.css">

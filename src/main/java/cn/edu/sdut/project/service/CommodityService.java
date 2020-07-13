@@ -10,5 +10,5 @@ public interface CommodityService {
     List<Commodity> queryCommodities();
     int updateCommodity(Commodity com);
     int addCommodity(Commodity com);
-    int deleteCommodity(int commodityId);
+    int deleteCommodity(String commodityId);
 }

@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int addUser(User user) {
-        return 0;
+        return this.userMapper.addUser(user);
     }
 
     @Override

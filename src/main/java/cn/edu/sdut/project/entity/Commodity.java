@@ -1,21 +1,33 @@
 package cn.edu.sdut.project.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class Commodity {
-    String commodityId,commodityTitle,commodityType;
-    Date manuDate,groundDate;
-    int qualityPeriod;
+    private  String commodityId,commodityTitle,commodityType;
+    /***格式化时间***/
+    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date manuDate;
+
+    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date groundDate;
+    private int qualityPeriod,sort;
+
 
     public Commodity() {}
 
-    public Commodity(String commodityId, String commodityTitle, String commodityType, Date manuDate, Date groundDate, int qualityPeriod) {
+    public Commodity(String commodityId, String commodityTitle, String commodityType, Date manuDate, Date groundDate, int qualityPeriod, int sort) {
         this.commodityId = commodityId;
         this.commodityTitle = commodityTitle;
         this.commodityType = commodityType;
         this.manuDate = manuDate;
         this.groundDate = groundDate;
         this.qualityPeriod = qualityPeriod;
+        this.sort = sort;
     }
 
     public String getCommodityId() {
@@ -66,6 +78,14 @@ public class Commodity {
         this.qualityPeriod = qualityPeriod;
     }
 
+    public int getSort() {
+        return sort;
+    }
+
+    public void setSort(int sort) {
+        this.sort = sort;
+    }
+
     @Override
     public String toString() {
         return "Commodity{" +
@@ -75,6 +95,7 @@ public class Commodity {
                 ", manuDate=" + manuDate +
                 ", groundDate=" + groundDate +
                 ", qualityPeriod=" + qualityPeriod +
+                ", sort=" + sort +
                 '}';
     }
 }

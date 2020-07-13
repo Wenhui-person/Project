@@ -15,7 +15,7 @@
 			<a href="javascript:;" class="superUser">${user.name}<i class="ico-tri"></i></a>
 			<div class="slidedownBox">
 				<ul>
-					<li><a href="toChangepwd" target="Mainindex">修改密码</a></li>
+					<li><a href="toChangepwd?password=${user.password}&userid=${user.userid}" target="Mainindex">修改密码</a></li>
 					<li><a href="" target="_parent">退出</a></li>
 				</ul>
 			</div>

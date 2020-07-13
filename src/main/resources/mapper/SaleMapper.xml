@@ -7,4 +7,44 @@
     <select id="querySales" resultType="Sale">
         select * from sale
     </select>
+    
+    <!--<resultMap id="saleMap" type="Sale" autoMapping="true">
+        <id property="saleId" column="saleId"></id>
+        <collection property="commodity"  resultMap="commodityId"></collection>
+    </resultMap>
+    <resultMap id="commodityMap" type="Commodity" autoMapping="true">
+        <id column="commodityId" property="commodityId"></id>
+    </resultMap>
+    <select id="querySalesById" parameterType="Sale" resultMap="commodityMap">
+        SELECT  s1.*,c.commodityTitle
+        FROM  commodity c,sale s1
+        WHERE s1.commodityId=c.commodityId
+        AND s1.saleId=#{saleId}
+    </select>-->
+    <select id="querySalesById" parameterType="int" resultType="Sale">
+        select * from sale where saleId=#{saleId}
+    </select>
+
+    <update id="updateSale" parameterType="Sale">
+        update Sale
+        <set>
+            <if test="commodityId!=null and commodityId!=''">
+                commodityId=#{commodityId},
+            </if>
+            <if test="salePrice!=null and salePrice!=''">
+                salePrice=#{salePrice},
+            </if>
+            <if test="saleDate!=null">
+                saleDate=#{saleDate,jdbcType=DATE},
+            </if>
+            <if test="saleNum!=null and saleNum!=''">
+                saleNum=#{saleNum},
+            </if>
+        </set>
+        where saleId=#{saleId}
+    </update>
+
+    <delete id="deleteSale" parameterType="int">
+        delete from sale where saleId=${saleId}
+    </delete>
 </mapper>

@@ -34,7 +34,7 @@ public class CommodityServiceImpl implements CommodityService {
     }
 
     @Override
-    public int deleteCommodity(int commodityId) {
+    public int deleteCommodity(String commodityId) {
         return this.commodityMapper.deleteCommodity(commodityId);
     }
 }

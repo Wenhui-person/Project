@@ -13,12 +13,37 @@
         </where>
     </select>
     <select id="queryCommodities" resultType="Commodity">
-        select * from commodity
+        select commodityId,commodityTitle,commodityType,manuDate,groundDate,qualityPeriod from commodity order by sort desc
     </select>
 
     <insert id="addCommodity" parameterType="Commodity">
         insert into commodity values(#{commodityId},#{commodityTitle},
-        #{commodityType},now(),now(),#{qualityPeriod})
+        #{commodityType},#{manuDate,jdbcType=DATE},#{groundDate,jdbcType=DATE},#{qualityPeriod},null)
     </insert>
-    <!--#{manuDate},#{groundDate},-->
+
+    <update id="updateCommodity" parameterType="Commodity">
+        update commodity
+        <set>
+            <if test="commodityTitle!=null and commodityTitle!=''">
+                commodityTitle=#{commodityTitle},
+            </if>
+            <if test="commodityType!=null and commodityType!=''">
+                commodityType=#{commodityType},
+            </if>
+            <if test="manuDate!=null">
+                manuDate=#{manuDate,jdbcType=DATE},
+            </if>
+            <if test="groundDate!=null">
+                groundDate=#{groundDate,jdbcType=DATE},
+            </if>
+            <if test="qualityPeriod!=null and qualityPeriod!=''">
+                qualityPeriod=#{qualityPeriod},
+            </if>
+        </set>
+        where commodityId=#{commodityId}
+    </update>
+
+    <delete id="deleteCommodity" parameterType="String">
+        delete from commodity where commodityId=#{commodityId}
+    </delete>
 </mapper>

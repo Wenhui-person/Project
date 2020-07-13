@@ -3,7 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="renderer" content="webkit">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<title>商品</title>
 
 </head>
@@ -57,8 +58,8 @@
 									<td class="t_7">
 										<div class="btn">
 											<!--<a class="Top">置顶</a>-->
-											<a href="#" class="modify">修改</a>
-											<a href="#" class="delete">删除</a>
+											<a href="toCommodityChange?commodityId=${commodity.commodityId}" class="modify">修改</a>
+											<a href="doDeleteCommodity?commodityId=${commodity.commodityId}" class="delete" onclick="javascript: return delcfm();">删除</a>
 										</div>
 									</td>
 								</tr>
@@ -68,7 +69,7 @@
 						</table>
 						<!--pages S-->
 						<div class="pageSelect">
-							<span>共 <b>188</b> 条 每页 <b>10 </b>条   1/18</span>
+							<span>共 <b>18</b> 条 每页 <b>10 </b>条   1/18</span>
 							<div class="pageWrap">
 								<a class="pagePre"><i class="ico-pre">&nbsp;</i></a>
 								<a href="#" class="pagenumb cur">1</a>
@@ -78,6 +79,7 @@
 									<i class="ico-next">&nbsp;</i>
 								</a>
 							</div>
+
 						</div>
 						<!--pages E-->
 					</div>
@@ -95,5 +97,12 @@
 			$("form").attr("action","doSelectCommodity").submit();
 		});
 	});
+</script>
+<script type="text/javascript">
+	function delcfm() {
+		if (!confirm("确认要删除？")) {
+			return false;
+		}
+	}
 </script>
 </html>
